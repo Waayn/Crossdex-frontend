@@ -1,0 +1,30 @@
+.pokeback {
+    font-size: 30px;
+    color: #7e7e7e !important;
+    text-decoration: none;
+    height: 30px;
+    line-height: 30px;
+}
+
+.pokehoverlink:hover {
+    color: #ffcb05 !important;
+}
+
+.pokeviewdiv {
+    font-size: 20px !important;
+    color: #7e7e7e !important;
+    max-width: 700px;
+    text-align: center !important;
+}
+
+.pokeviewh2 {
+    font-size: 30px;
+}
+
+.pokeborder{
+    border-bottom: 1px solid #7e7e7e55;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    filter: brightness(0%);
+}
