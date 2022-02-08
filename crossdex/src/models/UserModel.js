@@ -5,7 +5,7 @@ export default class UserModel {
     login(infos) {
         return new Promise((resolve, reject) => {
             try {
-                axios.post('https://crossdex.herokuapp.com/login', { ...infos })
+                axios.post('http://localhost:1510/user/login', { ...infos })
                     .then(res => resolve(res))
                     .catch(err => reject(err))
             } catch (err) {
@@ -17,7 +17,7 @@ export default class UserModel {
     createUser(infos) {
         return new Promise((resolve, reject) => {
             try {
-                axios.post('https://crossdex.herokuapp.com/create/user', { ...infos })
+                axios.post('http://localhost:1510/user', { ...infos })
                     .then(res => resolve(res))
                     .catch(err => reject(err))
             } catch (err) {
@@ -29,7 +29,7 @@ export default class UserModel {
     getUserById(id) {
         return new Promise((resolve, reject) => {
             try {
-                axios.post('https://crossdex.herokuapp.com/get/user', { id })
+                axios.get('http://localhost:1510/user/' + id)
                     .then(res => resolve(res))
                     .catch(err => reject(err))
             } catch (err) {
@@ -41,7 +41,7 @@ export default class UserModel {
     setCapturedPokemons(id, capturedPokemons) {
         return new Promise((resolve, reject) => {
             try {
-                axios.patch('https://crossdex.herokuapp.com/user/capturedPokemons', { id, capturedPokemons })
+                axios.patch('http://localhost:1510/user/capturedPokemons', { id, capturedPokemons })
                     .then(res => resolve(res))
                     .catch(err => reject(err))
             } catch (err) {
@@ -53,7 +53,7 @@ export default class UserModel {
     deleteUser(infos) {
         return new Promise((resolve, reject) => {
             try {
-                axios.post('https://crossdex.herokuapp.com/delete/user', { ...infos })
+                axios.post('http://localhost:1510/user/delete', { ...infos })
                     .then(res => resolve(res))
                     .catch(err => reject(err))
             } catch (err) {

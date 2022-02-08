@@ -39,10 +39,6 @@ const HomeCaptured = () => {
         return user.capturedPokemons.includes(id)
     }
 
-    const logout = () => {
-        setCookie('crossdex', '', { expires: new Date(Date.now() - (3600 * 1000 * 25)) })
-    }
-
     const changePage = (page) => {
         setPagination({ start: page * 36 - 36, end: page * 36 })
     }
@@ -74,13 +70,10 @@ const HomeCaptured = () => {
                         }
                     </Row>
                     {filteredPokemons.length !== 0 &&
-                        <Pagination items={filteredPokemons.length} itemsPerPage={36} onChange={changePage} currentPage={currentPage} setCurrent={setCurrentPage} />
+                        <div className="mb-5">
+                            <Pagination items={filteredPokemons.length} itemsPerPage={36} onChange={changePage} currentPage={currentPage} setCurrent={setCurrentPage} />
+                        </div>
                     }
-                    <div className="w-100">
-                        <button className="btn-pokemodal-cancel mx-auto mb-5 mt-5 pt-1 d-block" onClick={logout}>Logout
-                            <i className="bi bi-box-arrow-right ms-3 pokelogout" style={{ fontSize: "20px" }}></i>
-                        </button>
-                    </div>
                 </div>
                 : <Loader />}
         </>}

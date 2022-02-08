@@ -5,7 +5,7 @@ export default class PokemonModel {
     getAllPokemons() {
         return new Promise((resolve, reject) => {
             try {
-                axios.get('https://crossdex.herokuapp.com/pokemons')
+                axios.get('http://localhost:1510/pokemons')
                     .then(res => resolve(res))
                     .catch(err => reject(err))
             } catch (err) {
@@ -17,7 +17,7 @@ export default class PokemonModel {
     getPokemonById(id) {
         return new Promise((resolve, reject) => {
             try {
-                axios.get('https://crossdex.herokuapp.com/pokemon/' + id)
+                axios.get('http://localhost:1510/pokemons/' + id)
                     .then(res => resolve(res))
                     .catch(err => reject(err))
             } catch (err) {
@@ -29,7 +29,7 @@ export default class PokemonModel {
     getPokemonsById(ids) {
         return new Promise((resolve, reject) => {
             try {
-                axios.post('https://crossdex.herokuapp.com/pokemons', { ids: [...ids] })
+                axios.post('http://localhost:1510/pokemons/selectedPokemons', { ids: [...ids] })
                     .then(res => resolve(res))
                     .catch(err => reject(err))
             } catch (err) {
