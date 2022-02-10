@@ -20,7 +20,7 @@ const CarouselEvolutions = (props) => {
         <Carousel indicators={false}>
             {evolutions.map((evo, index) => {
                 return <Carousel.Item key={index} className="carousel-item">
-                    <img src={evo.image} alt={'Next evolution'} />
+                    <img src={evo.image} alt={'Next evolution'} className="pokethumbnail" />
                     <p className="m-0 p-0 mb-2 mt-3 fw-bold">{evo.name}</p>
                     <p className="m-0 p-0 mb-3 mt-1">{evo.how}</p>
                 </Carousel.Item>

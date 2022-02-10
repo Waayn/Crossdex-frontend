@@ -86,7 +86,9 @@ const PokemonView = () => {
                 </Row>
                 <Row className="w-75 pb-3 pt-3 mx-auto pokeborder">
                     <Col xs={6}><h2 className="fw-bold">{pokemon.profile.ability.length < 2 ? 'Ability' : 'Abilities'}</h2> {pokemon.profile.ability.map(a => <p key={a[0]} className="m-0 p-0">{a[0]}</p>)}</Col>
-                    <Col xs={6}><h2 className="fw-bold">Egg</h2> {pokemon.profile.egg.map(e => <p key={e} className="m-0 p-0">{e}</p>)}</Col>
+                    {pokemon.profile.egg ?
+                        <Col xs={6}><h2 className="fw-bold">Egg</h2> {pokemon.profile.egg.map(e => <p key={e} className="m-0 p-0">{e}</p>)}</Col> :
+                        <Col xs={6}><h2 className="fw-bold">Egg</h2> No info</Col>}
                 </Row>
 
                 <Row className="w-75 pb-3 pt-3 mx-auto pokeborder">
@@ -101,12 +103,14 @@ const PokemonView = () => {
                     {/* -----------  Stats ----------- */}
                     <Col xs={6}>
                         <h2 className="fw-bold">Base stats</h2>
-                        <p className="m-0 p-0">{Object.keys(pokemon.base)[0]}: {Object.values(pokemon.base)[0]}</p>
-                        <p className="m-0 p-0">{Object.keys(pokemon.base)[1]}: {Object.values(pokemon.base)[1]}</p>
-                        <p className="m-0 p-0">{Object.keys(pokemon.base)[2]}: {Object.values(pokemon.base)[2]}</p>
-                        <p className="m-0 p-0">{Object.keys(pokemon.base)[3]}: {Object.values(pokemon.base)[3]}</p>
-                        <p className="m-0 p-0">{Object.keys(pokemon.base)[4]}: {Object.values(pokemon.base)[4]}</p>
-                        <p className="m-0 p-0">{Object.keys(pokemon.base)[5]}: {Object.values(pokemon.base)[5]}</p>
+                        {pokemon.base ? <>
+                            <p className="m-0 p-0">{Object.keys(pokemon.base)[0]}: {Object.values(pokemon.base)[0]}</p>
+                            <p className="m-0 p-0">{Object.keys(pokemon.base)[1]}: {Object.values(pokemon.base)[1]}</p>
+                            <p className="m-0 p-0">{Object.keys(pokemon.base)[2]}: {Object.values(pokemon.base)[2]}</p>
+                            <p className="m-0 p-0">{Object.keys(pokemon.base)[3]}: {Object.values(pokemon.base)[3]}</p>
+                            <p className="m-0 p-0">{Object.keys(pokemon.base)[4]}: {Object.values(pokemon.base)[4]}</p>
+                            <p className="m-0 p-0">{Object.keys(pokemon.base)[5]}: {Object.values(pokemon.base)[5]}</p>
+                        </> : <p className="m-0 p-0">No info</p>}
                     </Col>
                 </Row>
 
@@ -116,7 +120,7 @@ const PokemonView = () => {
                         <h2 className="fw-bold">Previous</h2>
                         {pokemon.evolution ? <>
                             {pokemon.evolution.prev && previousInfos ? <>
-                                <img src={previousInfos.thumbnail} alt={'Previous evolution'} />
+                                <img src={previousInfos.thumbnail} alt={'Previous evolution'} className="pokethumbnail" />
                                 <p className="m-0 p-0 mb-2 mt-3 fw-bold">{previousInfos.name}</p>
                                 <p className="m-0 p-0 mb-3 mt-1">{pokemon.evolution.prev[1]}</p>
                             </> : <p className="m-0 p-0 mb-3 mt-1">No previous evolution</p>}
@@ -128,7 +132,7 @@ const PokemonView = () => {
                             {pokemon.evolution.next && nextInfos && pokemon.evolution.next.length > 1 ?
                                 <CarouselEvolutions evolutions={pokemon.evolution.next} /> : <>
                                     {pokemon.evolution.next && nextInfos ? <>
-                                        <img src={nextInfos.thumbnail} alt={'Next evolution'} />
+                                        <img src={nextInfos.thumbnail} alt={'Next evolution'} className="pokethumbnail" />
                                         <p className="m-0 p-0 mb-2 mt-3 fw-bold">{nextInfos.name}</p>
                                         <p className="m-0 p-0 mb-3 mt-1">{pokemon.evolution.next[0][1]}</p>
                                     </> : <p className="m-0 p-0 mb-3 mt-1">No next evolution</p>}

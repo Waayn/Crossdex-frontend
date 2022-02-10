@@ -31,7 +31,7 @@ const PokemonCard = (props) => {
     return <>{user ?
         <Col xs={6} sm={4} md={3} xl={2} style={{ height: "230px" }}>
             <div className={"pokemon-card mt-4 py-3 mx-auto position-relative pokebg-" + props.pokemon.type[0]} onClick={() => setShowModal(true)}>
-                <Image className={"mx-auto d-block w-75 " + (isCaptured() ? "" : "poke-disabled")} src={props.pokemon.hires} alt={props.pokemon.name.english} />
+                <Image className={"mx-auto d-block w-75 " + (isCaptured() ? "" : "poke-disabled")} src={props.pokemon.thumbnail} alt={props.pokemon.name.english} />
                 <Image src={Pokeball} className={"pokeball-validation position-absolute " + (isCaptured() ? "" : "no-ball")} />
                 <p className="pokemon-name text-center pt-3">{props.pokemon.name.english}</p>
             </div>
