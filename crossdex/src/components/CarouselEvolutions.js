@@ -12,7 +12,6 @@ const CarouselEvolutions = (props) => {
             .then(res => res.data.forEach((data, index) => {
                 setEvolutions(evolutions => [...evolutions, { image: data.thumbnail, name: data.name.english, how: props.evolutions[index][1] }])
             }))
-        // setEvolutions([...evolutions, { image: res.data[0].thumbnail, name: res.data[0].name.english, how: evo[1] }]))
         //eslint-disable-next-line
     }, [])
 
